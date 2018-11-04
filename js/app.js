@@ -1,5 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function() {
+    this.x = 0;
+    this.y = 0;
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -77,6 +79,9 @@ class Hero {
 
 // Place the player object in a variable called player
 const player = new Hero();
+const bug1 = new Enemy();
+const allEnemies = [];
+allEnemies.push(bug1);
 
 
 // This listens for key presses and sends the keys to your
