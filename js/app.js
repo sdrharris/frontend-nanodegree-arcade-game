@@ -1,7 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function() {
     this.x = 0;
-    this.y = 0;
+    this.y = 55; // center
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
