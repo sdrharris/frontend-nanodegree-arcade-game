@@ -29,16 +29,23 @@ class Hero {
         this.y = 0;
         this.sprite = 'images/char-boy.png';
     }
-}
-// This class requires an update(), render() and
-// a handleInput() method.
-// Draw hero sprite on current x and y coord position
+
+    // This class requires an update(), render() and
+    // a handleInput() method.
+    // Draw hero sprite on current x and y coord position
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
+    /**
+     * Update hero's x and y property according to input
+     * 
+     * @param {string} input - Direction to travel
+     */
+    handleInput(input) {
 
-
+    }
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
