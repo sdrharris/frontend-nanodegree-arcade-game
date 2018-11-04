@@ -1,7 +1,8 @@
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
-    this.x = x;
-    this.y = y + 55; // center
+    // Properties
+    this.x = x; // x pos
+    this.y = y + 55; // y pos
     this.speed = speed;
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -9,7 +10,7 @@ var Enemy = function(x, y, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.step = 101;
+    this.step = 101; // Step property
     this.boundary = this.step * 5;
     this.resetPos = -this.step;
 };
@@ -22,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     // If enemy is not  passed boundary
-    if(this.x < this.boundary) {
+    if(this.x < this.boundary) { 
         // Move forward
         // Increment x by speed * dt
         this.x += this.speed * dt;
@@ -33,6 +34,8 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
+// Check for collision between player and enemies
+
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -41,30 +44,47 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // Hero class
 class Hero {
-    constructor() {
-        this.sprite = 'images/char-boy.png';
+    constructor() { // Constructor
+        // Properties
+        this.sprite = 'images/char-boy.png'; // Sprite image
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
         this.startY = (this.jump * 5) - 20;
-        this.x = this.startX;
-        this.y = this.startY;
+        this.x = this.startX; // x pos
+        this.y = this.startY; // y pos
     }
 
     // This class requires an update(), render() and
     // a handleInput() method.
+    // Methods
+    // Update position
+    update() {
+        // Check collision here
+        for(let enemy of allEnemies) {
+            console.log(enemy);
+            // Did player x and y collide with enemy?
+        } 
+    
+    // Check win here?
+    // Did player x and y reach final tile?
+    }
+    
+    // Render
     // Draw hero sprite on current x and y coord position
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
+    // Handle keyboard input
     /**
      * Update hero's x and y property according to input
      * 
      * @param {string} input - Direction to travel
      */
     handleInput(input) {
-        switch(input) {
+        switch(input) { // Reset Hero
+            // Set x and y to starting x and y
             case 'left':
                 if (this.x > 0) {
                     this.x -= this.step;
@@ -88,18 +108,17 @@ class Hero {
         }
     }
 }
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
 
+// Now instantiate your objects.
 
 // Place the player object in a variable called player
-const player = new Hero();
-const bug1 = new Enemy(-101, 0, 200);
-const bug2 = new Enemy(-101, 83, 300);
-const bug3 = new Enemy((-101*2.5), 83, 300);
-const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3);
-console.log(allEnemies);
+const player = new Hero(); // Instantiate New Hero Object
+const bug1 = new Enemy(-101, 0, 200); // instantiate enemy object
+const bug2 = new Enemy(-101, 83, 300); // instantiate enemy object
+const bug3 = new Enemy((-101*2.5), 83, 300); // instantiate enemy object
+const allEnemies = []; // Place all enemy objects in an array called allEnemies
+allEnemies.push(bug1, bug2, bug3); // For each enemy create and push new Enemy object into above array
+console.log(allEnemies); // Init allEnemies array
 
 
 // This listens for key presses and sends the keys to your
