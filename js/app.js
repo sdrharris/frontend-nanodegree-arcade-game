@@ -66,7 +66,7 @@ class Hero {
 
 
 // Place the player object in a variable called player
-const player = Hero();
+const player = new Hero();
 
 
 // This listens for key presses and sends the keys to your
