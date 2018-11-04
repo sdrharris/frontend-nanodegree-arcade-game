@@ -22,6 +22,7 @@ Enemy.prototype.update = function(dt) {
     if(this.x < this.step * 4) {
         // Move forward
         // Increment x by speed * dt
+        this.x += 20 * dt;
     }
     // else
         // Reset pos to start
