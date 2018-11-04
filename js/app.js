@@ -1,7 +1,8 @@
 // Enemies our player must avoid
-var Enemy = function() {
-    this.x = 0;
-    this.y = 55; // center
+var Enemy = function(x, y, speed) {
+    this.x = x;
+    this.y = y + 55; // center
+    this.speed = speed;
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -24,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     if(this.x < this.boundary) {
         // Move forward
         // Increment x by speed * dt
-        this.x += 200 * dt;
+        this.x += this.speed * dt;
     }
     else {
         // Reset pos to start
@@ -93,9 +94,12 @@ class Hero {
 
 // Place the player object in a variable called player
 const player = new Hero();
-const bug1 = new Enemy();
+const bug1 = new Enemy(-101, 0, 200);
+const bug2 = new Enemy(-101, 83, 300);
+const bug3 = new Enemy((-101*2.5), 83, 300);
 const allEnemies = [];
-allEnemies.push(bug1);
+allEnemies.push(bug1, bug2, bug3);
+console.log(allEnemies);
 
 
 // This listens for key presses and sends the keys to your
