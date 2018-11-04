@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     // If enemy is not  passed boundary
-    if(this.x < this.step * 5) {
+    if(this.x < this.boundary) {
         // Move forward
         // Increment x by speed * dt
         this.x += 200 * dt;
