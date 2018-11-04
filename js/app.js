@@ -50,9 +50,10 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = (this.jump * 5) - 20;
+        this.startY = (this.jump * 4) + 55;
         this.x = this.startX; // x pos
         this.y = this.startY; // y pos
+        this.victory = false;
     }
 
     // This class requires an update(), render() and
@@ -62,14 +63,25 @@ class Hero {
     update() {
         // Check collision here
         for(let enemy of allEnemies) {
-            console.log(enemy);
+            
             // Did player x and y collide with enemy?
+            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2) ) {
+                this.reset();
+            }
         } 
-    
-    // Check win here?
-    // Did player x and y reach final tile?
+        // Check win here?
+            // Did player x and y reach final tile?
+            if(this.y === 55) {
+                this.victory = true;
+            }
     }
-    
+    // Reset Hero
+    reset() {
+        // Set x and y to starting x and y
+        this.y = this.startY;
+        this.x = this.startX;
+    }
+            
     // Render
     // Draw hero sprite on current x and y coord position
     render() {
@@ -83,8 +95,7 @@ class Hero {
      * @param {string} input - Direction to travel
      */
     handleInput(input) {
-        switch(input) { // Reset Hero
-            // Set x and y to starting x and y
+        switch(input) { 
             case 'left':
                 if (this.x > 0) {
                     this.x -= this.step;
