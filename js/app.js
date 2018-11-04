@@ -27,7 +27,7 @@ class Hero {
     constructor() {
         thix.x = 0;
         this.y = 0;
-        this.sprite = 'images/char-coy.png';
+        this.sprite = 'images/char-boy.png';
     }
 }
 // This class requires an update(), render() and
