@@ -23,6 +23,10 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
+
+    const modal = document.querySelector('.modal-bg');
+    const replay = document.querySelector('.modal-button');
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -54,8 +58,19 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
+        replay.addEventListener('click', event => {
+
+            const clickTarget = event.target;
+            modal.classList.toggle('hide');
+            player.reset();
+            player.victory = false;
+            win.requestAnimationFrame(main);
+        });
+
         if (player.victory === true) {
             win.cancelAnimationFrame(id);
+            modal.classList.toggle('hide');
+            modal.classList.toggle('show');
         }
         else {
             id = win.requestAnimationFrame(main);
