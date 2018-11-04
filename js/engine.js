@@ -150,7 +150,7 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
         // allEnemies.forEach(function(enemy) {
-         //   enemy.render();
+        //   enemy.render();
         // });
 
         player.render();
