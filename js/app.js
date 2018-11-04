@@ -42,6 +42,8 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
+// This class requires an update(), render() and
+// a handleInput() method.
 // Hero class
 class Hero {
     constructor() { // Constructor
@@ -56,25 +58,6 @@ class Hero {
         this.victory = false;
     }
 
-    // This class requires an update(), render() and
-    // a handleInput() method.
-    // Methods
-    // Update position
-    update() {
-        // Check collision here
-        for(let enemy of allEnemies) {
-            
-            // Did player x and y collide with enemy?
-            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2) ) {
-                this.reset();
-            }
-        } 
-        // Check win here?
-            // Did player x and y reach final tile?
-            if(this.y === 55) {
-                this.victory = true;
-            }
-    }
     // Reset Hero
     reset() {
         // Set x and y to starting x and y
@@ -118,6 +101,22 @@ class Hero {
                 break;
         }
     }
+    // Update position
+    update() {
+        // Check collision here
+        for(let enemy of allEnemies) {
+            
+            // Did player x and y collide with enemy?
+            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2) ) {
+                this.reset();
+            }
+        } 
+        // Check win here?
+            // Did player x and y reach final tile?
+            if(this.y === 55) {
+                this.victory = true;
+            }
+    }
 }
 
 // Now instantiate your objects.
@@ -126,9 +125,10 @@ class Hero {
 const player = new Hero(); // Instantiate New Hero Object
 const bug1 = new Enemy(-101, 0, 200); // instantiate enemy object
 const bug2 = new Enemy(-101, 83, 300); // instantiate enemy object
-const bug3 = new Enemy((-101*2.5), 83, 300); // instantiate enemy object
+const bug3 = new Enemy((-101*2.5), 83, 300);
+const bug4 = new Enemy(-101, 165, 350); // instantiate enemy object
 const allEnemies = []; // Place all enemy objects in an array called allEnemies
-allEnemies.push(bug1, bug2, bug3); // For each enemy create and push new Enemy object into above array
+allEnemies.push(bug1, bug2, bug3, bug4); // For each enemy create and push new Enemy object into above array
 console.log(allEnemies); // Init allEnemies array
 
 
