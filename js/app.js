@@ -10,6 +10,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.step = 101;
     this.boundary = this.step * 5;
+    this.resetPos = -this.step;
 };
 
 // Update the enemy's position, required method for game
@@ -25,8 +26,10 @@ Enemy.prototype.update = function(dt) {
         // Increment x by speed * dt
         this.x += 200 * dt;
     }
-    // else
+    else {
         // Reset pos to start
+        this.x = this.resetPos;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
