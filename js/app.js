@@ -25,9 +25,11 @@ Enemy.prototype.render = function() {
 // Hero class
 class Hero {
     constructor() {
+        this.sprite = 'images/char-boy.png';
+        this.step = 101;
+        this.jump = 83;
         thix.x = 0;
         this.y = 0;
-        this.sprite = 'images/char-boy.png';
     }
 
     // This class requires an update(), render() and
@@ -61,7 +63,7 @@ class Hero {
 
 
 // Place the player object in a variable called player
-const player = new Hero();
+const player = Hero();
 
 
 // This listens for key presses and sends the keys to your
