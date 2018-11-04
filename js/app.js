@@ -34,14 +34,14 @@ class Hero {
 // a handleInput() method.
 // Draw hero sprite on current x and y coord position
     render() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-}
+
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8];
+
 
 // Place the player object in a variable called player
 const player = new Hero();
