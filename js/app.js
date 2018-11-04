@@ -22,6 +22,14 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
+// Hero class
+class Hero {
+    constructor() {
+        thix.x = 0;
+        this.y = 0;
+        this.sprite = 'images/char-coy.png';
+    }
+}
 // This class requires an update(), render() and
 // a handleInput() method.
 
