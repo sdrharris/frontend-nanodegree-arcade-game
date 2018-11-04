@@ -43,7 +43,17 @@ class Hero {
      * @param {string} input - Direction to travel
      */
     handleInput(input) {
-
+        switch(input) {
+            case 'left':
+                this.x -= 20;
+                break;
+            case 'up':
+                this.y -= 20;
+                break;
+            case 'right':
+                this.x += 20;
+                break;
+        }
     }
 }
 // Now instantiate your objects.
