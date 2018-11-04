@@ -48,7 +48,7 @@ Enemy.prototype.render = function() {
 class Hero {
     constructor() { // Constructor
         // Properties
-        this.sprite = 'images/char-boy.png'; // Sprite image
+        this.sprite = 'images/char-horn-girl.png'; // Sprite image
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
