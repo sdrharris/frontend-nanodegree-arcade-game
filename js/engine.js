@@ -26,6 +26,7 @@ var Engine = (function(global) {
 
     const modal = document.querySelector('.modal-bg');
     const replay = document.querySelector('.modal-button');
+    
 
     canvas.width = 505;
     canvas.height = 606;
@@ -192,7 +193,7 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-horn-girl.png'
     ]);
     Resources.onReady(init);
 
