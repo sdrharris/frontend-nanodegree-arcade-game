@@ -32,6 +32,11 @@ class Hero {
 }
 // This class requires an update(), render() and
 // a handleInput() method.
+// Draw hero sprite on current x and y coord position
+    render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
 
 
 // Now instantiate your objects.
